@@ -1,67 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-/* اضافه کردن فونت آیکون اینستاگرام */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-background: url('Background.png') no-repeat center center/cover;
+    min-height: 100vh;
+    background: url('Background.png') no-repeat center center/cover;
     color: #bdbbb0;
     font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    box-sizing: border-box;
 }
 
-.menu {
+.center-text {
     position: absolute;
-.menu {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -42%);
-    /* وسط‌چین کامل منو */
-    min-width: 180px;
+    top: 38%;
+    left: 46%;
+    transform: translate(-30%, -38%);
+    color: #bdbbb0;
+    text-align: left;
+    text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
+}
+.center-text h1 {
+    font-size: 2.8em;
+    font-weight: 400;
+    opacity: 0.32;
+    margin: 0 0 0.1em 0;
+}
+.center-text h2 {
+    font-size: 1.4em;
+    font-weight: 300;
+    opacity: 0.2;
+    letter-spacing: 1.5px;
+    margin: 0;
 }
 
+/* منو */
+.menu {
+    position: absolute;
+    left: 60px;
+    top: 100px;
+}
 .menu ul {
-/* نامرتب کردن ظاهری خطوط لیست منو */
-.menu li:nth-child(1) { --rand-offset: 5px;  --rand-skew: 1.2deg; --rand-pad: 11px;}
-.menu li:nth-child(2) { --rand-offset: -3px; --rand-skew: -1.5deg; --rand-pad: 7px;}
-.menu li:nth-child(3) { --rand-offset: 9px;  --rand-skew: 2.4deg;  --rand-pad: 15px;}
-.menu li:nth-child(4) { --rand-offset: -7px; --rand-skew: -2deg;  --rand-pad: 3px;}
-.menu li:nth-child(5) { --rand-offset: 3px;  --rand-skew: 1.6deg;  --rand-pad: 9px;}
-.menu li:nth-child(6) { --rand-offset: -2px; --rand-skew: -2deg;  --rand-pad: 6px;}
     list-style: none;
     padding: 0;
+    margin: 0;
 }
-
 .menu li {
-color: #babbb0;
+    color: #babbb0;
     letter-spacing: 2px;
-    margin-bottom: 22px;
-    font-size: 0.95em;
+    margin-bottom: 34px;
+    font-size: 1.1em;
     display: flex;
     align-items: center;
     opacity: 0.93;
-    transition: color 0.22s, filter 0.22s, transform 0.17s;
-    filter: brightness(0.74) blur(0.4px);
-    /* عقب جلو شدن نامنظم */
-    transform: translateX(var(--rand-offset, 0px)) skewY(var(--rand-skew, 0deg));
-    /* تراز چپ جزیی */
+    transition: color 0.2s, filter 0.2s, transform 0.14s;
+    filter: brightness(0.87) blur(0.2px);
     justify-content: flex-start;
-    padding-left: var(--rand-pad, 2px);
+    padding-left: 7px;
     cursor: pointer;
+    box-sizing: border-box;
 }
-
 .menu li:hover {
     color: #ffe680;
-    filter: brightness(1.12) blur(0);
-    background: rgba(40,40,0,0.16);
-    box-shadow: 0 2px 16px #efd40124;
-    transform: translateX(calc(var(--rand-offset, 0px) + 6px)) scale(1.06) skewY(var(--rand-skew, 0deg));
-    z-index:3;
+    filter: brightness(1.17) blur(0);
+    background: rgba(40,40,0,0.18);
+    box-shadow: 0 2px 13px #efd40126;
+    transform: scale(1.11);
+    z-index: 1;
 }
-
 .menu li .icon {
     border-radius: 50%;
     background: rgba(30,30,30,0.4);
@@ -77,7 +83,12 @@ color: #babbb0;
     font-size: 1.1em;
     box-shadow: 0 0 10px #3c3700cc;
 }
-
+.menu li .insta {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-size: 1.2em !important;
+    margin-right: 8px !important;
+}
 .menu li .badge {
     background: #ffe680;
     color: #222;
@@ -88,37 +99,43 @@ color: #babbb0;
     font-weight: bold;
 }
 
-.center-text {
-    position: absolute;
-    top: 38%;
-    left: 46%;
-    transform: translate(-30%, -38%);
-    color: #bdbbb0;
-    text-align: left;
-    text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
-}
-
-.center-text h1 {
-    font-size: 2.8em;
-    font-weight: 400;
-    opacity: 0.32;
-    margin: 0 0 0.1em 0;
-}
-
-.center-text h2 {
-    font-size: 1.4em;
-    font-weight: 300;
-    opacity: 0.2;
-    letter-spacing: 1.5px;
-    margin: 0;
-}
-
-li .insta {
-    font-family: FontAwesome;
-    font-style: normal;
-    font-size: 1.2em !important;
-    margin-right: 8px !important;
-}
-
-
-
+/* ---- واکنش‌گرایی ساده برای موبایل ---- */
+@media (max-width: 700px) {
+    .menu {
+        left: 50%;
+        top: 48%;
+        transform: translate(-50%, -50%);
+        min-width: 90vw;
+    }
+    .menu li {
+        font-size: 1.5em;
+        margin-bottom: 38px;
+        padding-left: 1vw;
+        letter-spacing: 2.9px;
+    }
+    .menu li .icon,
+    .menu li .insta {
+        font-size: 1.6em !important;
+        width: 2.1em;
+        height: 2.1em;
+        margin-right: 16px !important;
+    }
+    .center-text {
+        left: 50%;
+        top: 12%;
+        width: 97vw;
+        transform: translate(-50%, 0);
+        text-align: center;
+    }
+    .center-text h1 {
+        font-size: 2.45em;
+        opacity: 0.28;
+    }
+    .center-text h2 {
+        font-size: 1.1em;
+        opacity: 0.17;
+    }
+    .menu li .badge {
+        font-size: 1.07em;
+        margin-left: 11px;
+        padding: 4px 10px;
