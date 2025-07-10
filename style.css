@@ -5,137 +5,154 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: url('Background.png') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
+        url('Background.png') no-repeat center center/cover;
     color: #bdbbb0;
     font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
-    box-sizing: border-box;
 }
 
+/* ------ Center Text ------ */
 .center-text {
     position: absolute;
-    top: 38%;
-    left: 46%;
-    transform: translate(-30%, -38%);
+    top: 15%;
+    left: 60%;
+    transform: translate(-15%, 0);
     color: #bdbbb0;
     text-align: left;
     text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
+    pointer-events: none;
 }
 .center-text h1 {
-    font-size: 2.8em;
+    font-size: 2.3em;
     font-weight: 400;
-    opacity: 0.32;
+    opacity: 0.22;
     margin: 0 0 0.1em 0;
 }
 .center-text h2 {
-    font-size: 1.4em;
-    font-weight: 300;
-    opacity: 0.2;
-    letter-spacing: 1.5px;
+    font-size: 1.12em;
+    font-weight: 350;
+    opacity: 0.13;
+    letter-spacing: 1.2px;
     margin: 0;
 }
 
-/* منو */
+/* ------ MENU ------ */
 .menu {
     position: absolute;
-    left: 60px;
-    top: 100px;
+    left: 50%;
+    top: 50%;
+    /* مرکز چین با کمی جابجایی به بالا برای ترکیب با مرکز متن */
+    transform: translate(-50%, -42%);
+    min-width: 180px;
 }
 .menu ul {
-    list-style: none;
+    list-style: none !important;
     padding: 0;
     margin: 0;
 }
 .menu li {
     color: #babbb0;
     letter-spacing: 2px;
-    margin-bottom: 34px;
-    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-size: 1.08em;
     display: flex;
     align-items: center;
     opacity: 0.93;
-    transition: color 0.2s, filter 0.2s, transform 0.14s;
-    filter: brightness(0.87) blur(0.2px);
+    transition: color 0.2s, filter 0.18s, transform 0.15s;
+    filter: brightness(0.80) blur(0.25px);
+    transform: translateX(var(--rand-offset, 0px)) skewY(var(--rand-skew, 0deg));
     justify-content: flex-start;
-    padding-left: 7px;
+    padding-left: var(--rand-pad, 2px);
     cursor: pointer;
     box-sizing: border-box;
 }
 .menu li:hover {
     color: #ffe680;
-    filter: brightness(1.17) blur(0);
-    background: rgba(40,40,0,0.18);
-    box-shadow: 0 2px 13px #efd40126;
-    transform: scale(1.11);
-    z-index: 1;
+    filter: brightness(1.11) blur(0);
+    background: rgba(40,40,0,0.14);
+    box-shadow: 0 2px 13px #efd40116;
+    transform: translateX(calc(var(--rand-offset, 0px) + 7px)) scale(1.07) skewY(var(--rand-skew, 0deg));
+    z-index: 2;
 }
-.menu li .icon {
+/* Stagger menu lines */
+.menu li:nth-child(1) { --rand-offset: 7px; --rand-skew: 1.1deg; --rand-pad: 11px;}
+.menu li:nth-child(2) { --rand-offset: -4px; --rand-skew: -1.3deg; --rand-pad: 6px;}
+.menu li:nth-child(3) { --rand-offset: 10px; --rand-skew: 2.8deg; --rand-pad: 16px;}
+.menu li:nth-child(4) { --rand-offset: -8px; --rand-skew: -2.1deg; --rand-pad: 3px;}
+.menu li:nth-child(5) { --rand-offset: 5px; --rand-skew: 1.6deg; --rand-pad: 8px;}
+.menu li:nth-child(6) { --rand-offset: -3px; --rand-skew: -1.5deg; --rand-pad: 7px;}
+
+/* Icons */
+.menu li .icon, .menu li .insta {
     border-radius: 50%;
-    background: rgba(30,30,30,0.4);
+    background: rgba(30,30,30,0.22);
     color: #c8c7ad;
-    border: 1.7px solid #655f4f;
-    width: 1.8em;
-    height: 1.8em;
+    border: 1.1px solid #655f4f;
+    width: 1.55em;
+    height: 1.55em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    font-weight: bold;
-    font-size: 1.1em;
-    box-shadow: 0 0 10px #3c3700cc;
+    font-weight: normal;
+    font-size: 1em;
+    box-shadow: 0 0 8px #3c37008a;
 }
 .menu li .insta {
     font-family: FontAwesome;
     font-style: normal;
-    font-size: 1.2em !important;
-    margin-right: 8px !important;
+    font-size: 1.18em !important;
+    margin-right: 9px !important;
 }
+
+/* Badge */
 .menu li .badge {
     background: #ffe680;
     color: #222;
     border-radius: 2px;
-    font-size: 0.82em;
+    font-size: 0.83em;
     padding: 2px 6px;
     margin-left: 7px;
     font-weight: bold;
 }
 
-/* ---- واکنش‌گرایی ساده برای موبایل ---- */
+/* ------- Responsive for Mobile ------- */
 @media (max-width: 700px) {
+    body {
+        background-position: center top;
+        background-size: cover;
+    }
     .menu {
         left: 50%;
-        top: 48%;
-        transform: translate(-50%, -50%);
-        min-width: 90vw;
+        top: 28%;
+        transform: translate(-50%, 0);
+        min-width: 160px;
     }
     .menu li {
-        font-size: 1.5em;
-        margin-bottom: 38px;
-        padding-left: 1vw;
-        letter-spacing: 2.9px;
-    }
-    .menu li .icon,
-    .menu li .insta {
-        font-size: 1.6em !important;
-        width: 2.1em;
-        height: 2.1em;
-        margin-right: 16px !important;
+        font-size: 1.12em;
+        margin-bottom: 15px;
+        padding-left: 3px;
     }
     .center-text {
         left: 50%;
-        top: 12%;
-        width: 97vw;
+        top: 8%;
+        width: 96vw;
         transform: translate(-50%, 0);
         text-align: center;
     }
     .center-text h1 {
-        font-size: 2.45em;
-        opacity: 0.28;
+        font-size: 1.25em;
+        opacity: 0.29;
     }
     .center-text h2 {
-        font-size: 1.1em;
+        font-size: 0.87em;
         opacity: 0.17;
     }
-    .menu li .badge {
-        font-size: 1.07em;
-        margin-left: 11px;
-        padding: 4px 10px;
+    /* حتی آیکون اینستا هم بزرگ‌تر بشه */
+    .menu li .icon,
+    .menu li .insta {
+        font-size: 1.22em !important;
+        width: 1.56em;
+        height: 1.56em;
+    }
+}
