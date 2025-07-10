@@ -12,7 +12,6 @@ body {
     box-sizing: border-box;
 }
 
-/* ----- CENTER TEXT ----- */
 .center-text {
     position: absolute;
     top: 15%;
@@ -24,10 +23,10 @@ body {
     pointer-events: none;
 }
 .center-text h1 {
-    font-size: 2.6em;
+    font-size: 2.7em;
     font-weight: 400;
-    opacity: 0.26;
-    margin: 0 0 0.12em 0;
+    opacity: 0.23;
+    margin: 0 0 0.14em 0;
 }
 .center-text h2 {
     font-size: 1.17em;
@@ -37,7 +36,7 @@ body {
     margin: 0;
 }
 
-/* ----- MENU ----- */
+/* MENU - DESKTOP */
 .menu {
     position: absolute;
     left: 50%;
@@ -45,13 +44,11 @@ body {
     transform: translate(-50%, -42%);
     min-width: 180px;
 }
-
 .menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 .menu li {
     color: #babbb0;
     letter-spacing: 2px;
@@ -83,7 +80,6 @@ body {
 .menu li:nth-child(5) { --rand-offset: 4px; --rand-skew: 1.5deg; --rand-pad: 7px;}
 .menu li:nth-child(6) { --rand-offset: -3px; --rand-skew: -1.1deg; --rand-pad: 8px;}
 
-/* ----- ICONS ----- */
 .menu li .icon, .menu li .insta {
     border-radius: 50%;
     background: rgba(30,30,30,0.22);
@@ -95,7 +91,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    font-weight: normal;
+    font-family: inherit;
     font-size: 1em;
     box-shadow: 0 0 8px #3c370087;
 }
@@ -106,7 +102,6 @@ body {
     margin-right: 9px !important;
 }
 
-/* ----- BADGE ----- */
 .menu li .badge {
     background: #ffe680;
     color: #222;
@@ -117,7 +112,7 @@ body {
     font-weight: bold;
 }
 
-/* ----- MOBILE RESPONSIVE ----- */
+/* ------------ MOBILE ------------- */
 @media (max-width: 700px) {
     body {
         background-position: center top;
@@ -127,40 +122,40 @@ body {
         left: 50%;
         top: 44%;
         transform: translate(-50%, -50%);
-        min-width: 82vw;
+        min-width: 90vw;
     }
     .menu li {
-        font-size: 1.42em;
-        margin-bottom: 30px;
-        padding-left: 3px;
-        letter-spacing: 2.5px;
+        font-size: 1.53em;
+        margin-bottom: 38px;
+        padding-left: 0.8vw;
+        letter-spacing: 2.8px;
         min-height: 2.6em;
     }
     .center-text {
         left: 50%;
-        top: 9%;
-        width: 97vw;
+        top: 11%;
+        width: 98vw;
         transform: translate(-50%, 0);
         text-align: center;
     }
     .center-text h1 {
-        font-size: 2.1em;
-        opacity: 0.33;
+        font-size: 2.45em;
+        opacity: 0.32;
     }
     .center-text h2 {
-        font-size: 1.14em;
+        font-size: 1.21em;
         opacity: 0.19;
     }
     .menu li .icon,
     .menu li .insta {
-        font-size: 1.51em !important;
-        width: 2.05em;
-        height: 2.05em;
-        margin-right: 13px !important;
+        font-size: 1.85em !important;
+        width: 2.35em;
+        height: 2.35em;
+        margin-right: 17px !important;
     }
     .menu li .badge {
-        font-size: 0.97em;
-        margin-left: 8px;
-        padding: 3px 7px;
+        font-size: 1.15em;
+        margin-left: 10px;
+        padding: 4px 10px;
     }
 }
