@@ -1,101 +1,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
     margin: 0;
     padding: 0;
-    background: url('Background.png') no-repeat center center/cover;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
+        url('Background.png') no-repeat center center/cover;
     color: #bdbbb0;
     font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
-    min-height: 100vh;
 }
 
+/* ------ Center Text ------ */
+.center-text {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+    transform: translate(-15%, 0);
+    color: #bdbbb0;
+    text-align: left;
+    text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
+    pointer-events: none;
+}
+.center-text h1 {
+    font-size: 2.3em;
+    font-weight: 400;
+    opacity: 0.22;
+    margin: 0 0 0.1em 0;
+}
+.center-text h2 {
+    font-size: 1.12em;
+    font-weight: 350;
+    opacity: 0.13;
+    letter-spacing: 1.2px;
+    margin: 0;
+}
+
+/* ------ MENU ------ */
 .menu {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    min-width: 220px;
+    top: 50%;
+    /* مرکز چین با کمی جابجایی به بالا برای ترکیب با مرکز متن */
+    transform: translate(-50%, -42%);
+    min-width: 180px;
 }
-
 .menu ul {
     list-style: none !important;
     padding: 0;
     margin: 0;
 }
-
 .menu li {
-    font-size: 1.07em;
-    margin-bottom: 18px;
     color: #babbb0;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-size: 1.08em;
     display: flex;
     align-items: center;
-    opacity: 0.91;
-    transition: color 0.21s, filter 0.2s, transform 0.15s;
+    opacity: 0.93;
+    transition: color 0.2s, filter 0.18s, transform 0.15s;
+    filter: brightness(0.80) blur(0.25px);
+    transform: translateX(var(--rand-offset, 0px)) skewY(var(--rand-skew, 0deg));
+    justify-content: flex-start;
+    padding-left: var(--rand-pad, 2px);
     cursor: pointer;
-    filter: brightness(0.8) blur(0.2px);
-    /* افکت نامنظم کردن مکان آیتم */
+    box-sizing: border-box;
 }
 .menu li:hover {
     color: #ffe680;
-    filter: brightness(1.08) blur(0);
-    transform: translateX(6px) scale(1.06);
+    filter: brightness(1.11) blur(0);
+    background: rgba(40,40,0,0.14);
+    box-shadow: 0 2px 13px #efd40116;
+    transform: translateX(calc(var(--rand-offset, 0px) + 7px)) scale(1.07) skewY(var(--rand-skew, 0deg));
     z-index: 2;
 }
+/* Stagger menu lines */
+.menu li:nth-child(1) { --rand-offset: 7px; --rand-skew: 1.1deg; --rand-pad: 11px;}
+.menu li:nth-child(2) { --rand-offset: -4px; --rand-skew: -1.3deg; --rand-pad: 6px;}
+.menu li:nth-child(3) { --rand-offset: 10px; --rand-skew: 2.8deg; --rand-pad: 16px;}
+.menu li:nth-child(4) { --rand-offset: -8px; --rand-skew: -2.1deg; --rand-pad: 3px;}
+.menu li:nth-child(5) { --rand-offset: 5px; --rand-skew: 1.6deg; --rand-pad: 8px;}
+.menu li:nth-child(6) { --rand-offset: -3px; --rand-skew: -1.5deg; --rand-pad: 7px;}
 
-.menu li .icon {
+/* Icons */
+.menu li .icon, .menu li .insta {
     border-radius: 50%;
-    background: rgba(30,30,30,0.25);
+    background: rgba(30,30,30,0.22);
     color: #c8c7ad;
-    border: 1.2px solid #655f4f;
-    width: 1.65em;
-    height: 1.65em;
+    border: 1.1px solid #655f4f;
+    width: 1.55em;
+    height: 1.55em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    font-size: 1em;
-}
-
-.menu li .badge {
-    background: #ffe680;
-    color: #222;
-    border-radius: 2px;
-    font-size: 0.83em;
-    padding: 2px 6px;
-    margin-left: 7px;
-    font-weight: bold;
-}
-
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-li .insta {
-    font-family: FontAwesome;
-    font-style: normal;
-    font-size: 1.17em !important;
-    margin-right: 8px !important;
-}
-
-.center-text {
-    position: absolute;
-    top: 16%;
-    left: 60%;
-    transform: translate(-18%, 0);
-    color: #bdbbb0;
-    text-align: left;
-    text-shadow: 0 3px 17px #000a;
-    pointer-events: none;
-}
-
-.center-text h1 {
-    font-size: 2.1em;
-    font-weight: 400;
-    opacity: 0.22;
-    margin: 0 0 0.1em 0;
-}
-
-.center-text h2 {
-    font-size: 1.10em;
-    font-weight: 350;
-    opacity: 0.13;
-    letter-spacing: 1.5px;
-    margin: 0;
-}
+    font-weight:
