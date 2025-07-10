@@ -1,53 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    background: #181818;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-    min-height: 100vh;
-}
-.sidebar {
-    width: 220px;
     height: 100vh;
-    background: #23272f;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding-top: 40px;
+    background: url('BACKGROUND_IMAGE_URL') no-repeat center center/cover;
+    color: #bdbbb0;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
 }
-.sidebar ul {
+
+.menu {
+    position: absolute;
+    left: 60px;
+    top: 100px;
+}
+
+.menu ul {
     list-style: none;
     padding: 0;
 }
-.sidebar li {
-    margin: 30px 0;
-}
-.sidebar a {
-    color: #fff;
-    text-decoration: none;
+
+.menu li {
+    color: #babbb0;
+    letter-spacing: 2px;
+    margin-bottom: 34px;
     font-size: 1.1em;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    opacity: 0.93;
     transition: color 0.2s;
 }
-.sidebar a:hover {
-    color: #60a5fa;
-}
-.background-text {
-    margin-left: 240px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+.menu li .icon {
+    border-radius: 50%;
+    background: rgba(30,30,30,0.4);
+    color: #c8c7ad;
+    border: 1.7px solid #655f4f;
+    width: 1.8em;
+    height: 1.8em;
+    display: inline-flex;
     align-items: center;
-}
-.background-text h1 {
-    font-size: 6vw;
+    justify-content: center;
+    margin-right: 10px;
     font-weight: bold;
-    color: #60a5fa;
-    opacity: 0.18;
-    letter-spacing: 8px;
+    font-size: 1.1em;
+    box-shadow: 0 0 10px #3c3700cc;
+}
+
+.menu li .badge {
+    background: #ffe680;
+    color: #222;
+    border-radius: 2px;
+    font-size: 0.82em;
+    padding: 2px 6px;
+    margin-left: 7px;
+    font-weight: bold;
+}
+
+.center-text {
+    position: absolute;
+    top: 38%;
+    left: 46%;
+    transform: translate(-30%, -38%);
+    color: #bdbbb0;
+    text-align: left;
+    text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
+}
+
+.center-text h1 {
+    font-size: 2.8em;
+    font-weight: 400;
+    opacity: 0.32;
+    margin: 0 0 0.1em 0;
+}
+
+.center-text h2 {
+    font-size: 1.4em;
+    font-weight: 300;
+    opacity: 0.2;
+    letter-spacing: 1.5px;
     margin: 0;
-    position: relative;
-    z-index: 1;
-    text-transform: lowercase;
+}
+
+/* اینستاگرام: نماد فونت awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+li .insta {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-size: 1.2em !important;
+    margin-right: 8px !important;
 }
