@@ -1,161 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* اضافه کردن فونت آیکون اینستاگرام */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
-        url('Background.png') no-repeat center center/cover;
+    height: 100vh;
+background: url('Background.png') no-repeat center center/cover;
     color: #bdbbb0;
     font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
-    box-sizing: border-box;
 }
 
-.center-text {
+.menu {
     position: absolute;
-    top: 15%;
-    left: 60%;
-    transform: translate(-15%, 0);
-    color: #bdbbb0;
-    text-align: left;
-    text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
-    pointer-events: none;
-}
-.center-text h1 {
-    font-size: 2.7em;
-    font-weight: 400;
-    opacity: 0.23;
-    margin: 0 0 0.14em 0;
-}
-.center-text h2 {
-    font-size: 1.17em;
-    font-weight: 350;
-    opacity: 0.14;
-    letter-spacing: 1.2px;
-    margin: 0;
-}
-
-/* MENU - DESKTOP */
 .menu {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -42%);
+    /* وسط‌چین کامل منو */
     min-width: 180px;
 }
+
 .menu ul {
+/* نامرتب کردن ظاهری خطوط لیست منو */
+.menu li:nth-child(1) { --rand-offset: 5px;  --rand-skew: 1.2deg; --rand-pad: 11px;}
+.menu li:nth-child(2) { --rand-offset: -3px; --rand-skew: -1.5deg; --rand-pad: 7px;}
+.menu li:nth-child(3) { --rand-offset: 9px;  --rand-skew: 2.4deg;  --rand-pad: 15px;}
+.menu li:nth-child(4) { --rand-offset: -7px; --rand-skew: -2deg;  --rand-pad: 3px;}
+.menu li:nth-child(5) { --rand-offset: 3px;  --rand-skew: 1.6deg;  --rand-pad: 9px;}
+.menu li:nth-child(6) { --rand-offset: -2px; --rand-skew: -2deg;  --rand-pad: 6px;}
     list-style: none;
     padding: 0;
-    margin: 0;
 }
+
 .menu li {
-    color: #babbb0;
+color: #babbb0;
     letter-spacing: 2px;
     margin-bottom: 22px;
-    font-size: 1.1em;
+    font-size: 0.95em;
     display: flex;
     align-items: center;
     opacity: 0.93;
-    transition: color 0.22s, filter 0.22s, transform 0.16s;
-    filter: brightness(0.8) blur(0.3px);
+    transition: color 0.22s, filter 0.22s, transform 0.17s;
+    filter: brightness(0.74) blur(0.4px);
+    /* عقب جلو شدن نامنظم */
     transform: translateX(var(--rand-offset, 0px)) skewY(var(--rand-skew, 0deg));
+    /* تراز چپ جزیی */
     justify-content: flex-start;
     padding-left: var(--rand-pad, 2px);
     cursor: pointer;
-    box-sizing: border-box;
 }
+
 .menu li:hover {
     color: #ffe680;
     filter: brightness(1.12) blur(0);
-    background: rgba(40,40,0,0.18);
-    box-shadow: 0 2px 13px #efd40126;
-    transform: translateX(calc(var(--rand-offset, 0px) + 7px)) scale(1.07) skewY(var(--rand-skew, 0deg));
-    z-index: 1;
+    background: rgba(40,40,0,0.16);
+    box-shadow: 0 2px 16px #efd40124;
+    transform: translateX(calc(var(--rand-offset, 0px) + 6px)) scale(1.06) skewY(var(--rand-skew, 0deg));
+    z-index:3;
 }
-.menu li:nth-child(1) { --rand-offset: 6px; --rand-skew: 1.1deg; --rand-pad: 12px;}
-.menu li:nth-child(2) { --rand-offset: -5px; --rand-skew: -2deg; --rand-pad: 6px;}
-.menu li:nth-child(3) { --rand-offset: 10px; --rand-skew: 2.4deg; --rand-pad: 16px;}
-.menu li:nth-child(4) { --rand-offset: -8px; --rand-skew: -2.2deg; --rand-pad: 3px;}
-.menu li:nth-child(5) { --rand-offset: 4px; --rand-skew: 1.5deg; --rand-pad: 7px;}
-.menu li:nth-child(6) { --rand-offset: -3px; --rand-skew: -1.1deg; --rand-pad: 8px;}
 
-.menu li .icon, .menu li .insta {
+.menu li .icon {
     border-radius: 50%;
-    background: rgba(30,30,30,0.22);
+    background: rgba(30,30,30,0.4);
     color: #c8c7ad;
-    border: 1.1px solid #655f4f;
-    width: 1.53em;
-    height: 1.53em;
+    border: 1.7px solid #655f4f;
+    width: 1.8em;
+    height: 1.8em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    font-family: inherit;
-    font-size: 1em;
-    box-shadow: 0 0 8px #3c370087;
-}
-.menu li .insta {
-    font-family: FontAwesome;
-    font-style: normal;
-    font-size: 1.17em !important;
-    margin-right: 9px !important;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 0 0 10px #3c3700cc;
 }
 
 .menu li .badge {
     background: #ffe680;
     color: #222;
     border-radius: 2px;
-    font-size: 0.85em;
+    font-size: 0.82em;
     padding: 2px 6px;
     margin-left: 7px;
     font-weight: bold;
 }
 
-/* ------------ MOBILE ------------- */
-@media (max-width: 700px) {
-    body {
-        background-position: center top;
-        background-size: cover;
-    }
-    .menu {
-        left: 50%;
-        top: 44%;
-        transform: translate(-50%, -50%);
-        min-width: 90vw;
-    }
-    .menu li {
-        font-size: 1.53em;
-        margin-bottom: 38px;
-        padding-left: 0.8vw;
-        letter-spacing: 2.8px;
-        min-height: 2.6em;
-    }
-    .center-text {
-        left: 50%;
-        top: 11%;
-        width: 98vw;
-        transform: translate(-50%, 0);
-        text-align: center;
-    }
-    .center-text h1 {
-        font-size: 2.45em;
-        opacity: 0.32;
-    }
-    .center-text h2 {
-        font-size: 1.21em;
-        opacity: 0.19;
-    }
-    .menu li .icon,
-    .menu li .insta {
-        font-size: 1.85em !important;
-        width: 2.35em;
-        height: 2.35em;
-        margin-right: 17px !important;
-    }
-    .menu li .badge {
-        font-size: 1.15em;
-        margin-left: 10px;
-        padding: 4px 10px;
-    }
+.center-text {
+    position: absolute;
+    top: 38%;
+    left: 46%;
+    transform: translate(-30%, -38%);
+    color: #bdbbb0;
+    text-align: left;
+    text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
 }
+
+.center-text h1 {
+    font-size: 2.8em;
+    font-weight: 400;
+    opacity: 0.32;
+    margin: 0 0 0.1em 0;
+}
+
+.center-text h2 {
+    font-size: 1.4em;
+    font-weight: 300;
+    opacity: 0.2;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+li .insta {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-size: 1.2em !important;
+    margin-right: 8px !important;
+}
+
+
+
