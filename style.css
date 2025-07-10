@@ -14,24 +14,52 @@ background: #000;
 
 .menu {
     position: absolute;
-    left: 60px;
-    top: 100px;
+.menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -42%);
+    /* وسط‌چین کامل منو */
+    min-width: 180px;
 }
 
 .menu ul {
+/* نامرتب کردن ظاهری خطوط لیست منو */
+.menu li:nth-child(1) { --rand-offset: 5px;  --rand-skew: 1.2deg; --rand-pad: 11px;}
+.menu li:nth-child(2) { --rand-offset: -3px; --rand-skew: -1.5deg; --rand-pad: 7px;}
+.menu li:nth-child(3) { --rand-offset: 9px;  --rand-skew: 2.4deg;  --rand-pad: 15px;}
+.menu li:nth-child(4) { --rand-offset: -7px; --rand-skew: -2deg;  --rand-pad: 3px;}
+.menu li:nth-child(5) { --rand-offset: 3px;  --rand-skew: 1.6deg;  --rand-pad: 9px;}
+.menu li:nth-child(6) { --rand-offset: -2px; --rand-skew: -2deg;  --rand-pad: 6px;}
     list-style: none;
     padding: 0;
 }
 
 .menu li {
-    color: #babbb0;
+color: #babbb0;
     letter-spacing: 2px;
-    margin-bottom: 34px;
-    font-size: 1.1em;
+    margin-bottom: 22px;
+    font-size: 0.95em;
     display: flex;
     align-items: center;
     opacity: 0.93;
-    transition: color 0.2s;
+    transition: color 0.22s, filter 0.22s, transform 0.17s;
+    filter: brightness(0.74) blur(0.4px);
+    /* عقب جلو شدن نامنظم */
+    transform: translateX(var(--rand-offset, 0px)) skewY(var(--rand-skew, 0deg));
+    /* تراز چپ جزیی */
+    justify-content: flex-start;
+    padding-left: var(--rand-pad, 2px);
+    cursor: pointer;
+}
+
+.menu li:hover {
+    color: #ffe680;
+    filter: brightness(1.12) blur(0);
+    background: rgba(40,40,0,0.16);
+    box-shadow: 0 2px 16px #efd40124;
+    transform: translateX(calc(var(--rand-offset, 0px) + 6px)) scale(1.06) skewY(var(--rand-skew, 0deg));
+    z-index:3;
 }
 
 .menu li .icon {
@@ -91,4 +119,5 @@ li .insta {
     font-size: 1.2em !important;
     margin-right: 8px !important;
 }
+
 
