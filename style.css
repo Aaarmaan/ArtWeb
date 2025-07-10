@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+/* اضافه کردن فونت آیکون اینستاگرام */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: url('Background.png') no-repeat center center/cover;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
+        url('Background.png') no-repeat center center/cover;
     color: #bdbbb0;
     font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
 }
@@ -82,8 +87,6 @@ body {
     margin: 0;
 }
 
-/* اینستاگرام: نماد فونت awesome */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 li .insta {
     font-family: FontAwesome;
     font-style: normal;
