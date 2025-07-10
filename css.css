@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #030303;
+  color: #ccc;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 35% 30%, #c9c79318 0%, #181818 90%);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.menu {
+  position: absolute;
+  left: 8vw; top: 20vh;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 2;
+}
+.menu a {
+  color: #e0e0b2;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: rgba(32,32,24,0.11);
+  border-radius: 22px;
+  padding: 5px 22px 5px 10px;
+  transition: background 0.2s;
+}
+.menu a span {
+  font-weight: normal;
+  font-size: 1rem;
+  letter-spacing: .5px;
+  color: #ddd;
+  margin-left: 4px;
+}
+.menu a:hover {
+  background: #353515aa;
+}
+.main-content {
+  margin-left: 28vw;
+  margin-top: 16vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.frame {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.frame-rect {
+  width: 90px; height: 90px;
+  background: #191916;
+  border: 3px solid #333325;
+  box-shadow: 0 0 10px #000, 0 0 30px #786;;
+}
+.frame-photo {
+  width: 50px; height: 60px;
+  background: #302d26;
+  border: 2px solid #706c50;
+  box-shadow: 0 0 10px #181818;
+}
+.text h1, .text h2 {
+  margin:0; padding: 0;
+  color: #e1d9b9d0;
+  text-shadow: 0px 2px 7px #14140c90;
+  font-weight: 400;
+}
+.text h1 { font-size: 2.1rem; letter-spacing:.15em;}
+.text h2 { font-size: 1.2rem; letter-spacing:.12em; margin-top:.6em;}
