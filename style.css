@@ -3,6 +3,7 @@
 
 body {
     background: url('Background.png') no-repeat center center/cover;
+    font-family: 'Share Tech Mono', monospace;
 }
 
 /* ------ Center Text ------ */
@@ -35,7 +36,6 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    /* مرکز چین با کمی جابجایی به بالا برای ترکیب با مرکز متن */
     transform: translate(-50%, -42%);
     min-width: 180px;
 }
@@ -113,40 +113,53 @@ body {
 /* ------- Responsive for Mobile ------- */
 @media (max-width: 700px) {
     body {
-        background-position: center top;
+        background-position: center center;
         background-size: cover;
+        background-attachment: fixed;
     }
     .menu {
         left: 50%;
-        top: 28%;
+        top: 35%;
         transform: translate(-50%, 0);
-        min-width: 160px;
+        min-width: 170px;
     }
     .menu li {
-        font-size: 1.12em;
-        margin-bottom: 15px;
-        padding-left: 3px;
+        font-size: 1.18em;
+        margin-bottom: 18px;
+        padding-left: 5px;
     }
     .center-text {
         left: 50%;
-        top: 8%;
-        width: 96vw;
+        top: 12%;
+        width: 95vw;
         transform: translate(-50%, 0);
         text-align: center;
     }
     .center-text h1 {
-        font-size: 1.25em;
-        opacity: 0.29;
+        font-size: 2.1em;
+        opacity: 0.28;
     }
     .center-text h2 {
-        font-size: 0.87em;
-        opacity: 0.17;
+        font-size: 1.1em;
+        opacity: 0.19;
     }
-    /* حتی آیکون اینستا هم بزرگ‌تر بشه */
     .menu li .icon,
     .menu li .insta {
-        font-size: 1.22em !important;
-        width: 1.56em;
-        height: 1.56em;
+        font-size: 1.25em !important;
+        width: 1.6em;
+        height: 1.6em;
+    }
+}
+
+/* ------- Extra Small Screens ------- */
+@media (max-width: 480px) {
+    .center-text h1 {
+        font-size: 1.8em;
+    }
+    .center-text h2 {
+        font-size: 1em;
+    }
+    .menu li {
+        font-size: 1.15em;
     }
 }
