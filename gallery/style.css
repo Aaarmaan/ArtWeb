@@ -63,11 +63,17 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   width: 160px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
 }
 
 .gallery-item img {
-  width: 152px;
-  height: 152px;
+  width: 76px;
+  height: 76px;
   border: 2px solid #fff;
   box-shadow: 0 2px 7px rgba(40,40,40,0.6);
   object-fit: cover;
@@ -82,6 +88,68 @@ nav a:hover {
   font-weight: 500;
   letter-spacing: 1px;
   margin-bottom: 2px;
+}
+
+/* Lightbox styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+
+.lightbox img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.close:hover {
+  color: #e2b16a;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+}
+
+.prev, .next {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(226,177,106,0.8);
 }
 
 footer {
@@ -99,7 +167,7 @@ footer {
     justify-content: center;
   }
   .gallery-item { width: 130px; }
-  .gallery-item img { width: 126px; height: 126px; }
+  .gallery-item img { width: 63px; height: 63px; }
   .galleries-title { margin-left: 6%; }
 }
 
@@ -107,6 +175,15 @@ footer {
   nav li { margin: 0 10px; }
   .gallery-grid { gap: 12px 7px; }
   .gallery-item { width: 92px; }
-  .gallery-item img { width: 88px; height: 88px; }
+  .gallery-item img { width: 44px; height: 44px; }
   .galleries-title { margin-left: 14px; }
+  
+  .lightbox-nav {
+    padding: 0 10px;
+  }
+  
+  .prev, .next {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
 }
