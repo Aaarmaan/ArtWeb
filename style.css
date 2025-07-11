@@ -1,9 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-body {
-    background: url('Background.png') no-repeat center center/cover;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
     font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
+}
+
+body {
+    background: url('Background.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* حذف استایل پیش‌فرض لینک‌ها */
+a {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover, a:visited, a:focus, a:active {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
 }
 
 /* ------ Center Text ------ */
@@ -16,13 +42,16 @@ body {
     text-align: left;
     text-shadow: 0 3px 17px #000a, 0 1px 2px #fff7;
     pointer-events: none;
+    z-index: 1;
 }
+
 .center-text h1 {
     font-size: 2.3em;
     font-weight: 400;
     opacity: 0.22;
     margin: 0 0 0.1em 0;
 }
+
 .center-text h2 {
     font-size: 1.12em;
     font-weight: 350;
@@ -38,12 +67,15 @@ body {
     top: 50%;
     transform: translate(-50%, -42%);
     min-width: 180px;
+    z-index: 10;
 }
+
 .menu ul {
     list-style: none !important;
     padding: 0;
     margin: 0;
 }
+
 .menu li {
     color: #babbb0;
     letter-spacing: 2px;
@@ -60,6 +92,7 @@ body {
     cursor: pointer;
     box-sizing: border-box;
 }
+
 .menu li:hover {
     color: #ffe680;
     filter: brightness(1.11) blur(0);
@@ -68,6 +101,7 @@ body {
     transform: translateX(calc(var(--rand-offset, 0px) + 7px)) scale(1.07) skewY(var(--rand-skew, 0deg));
     z-index: 2;
 }
+
 /* Stagger menu lines */
 .menu li:nth-child(1) { --rand-offset: 7px; --rand-skew: 1.1deg; --rand-pad: 11px;}
 .menu li:nth-child(2) { --rand-offset: -4px; --rand-skew: -1.3deg; --rand-pad: 6px;}
@@ -92,6 +126,7 @@ body {
     font-size: 1em;
     box-shadow: 0 0 8px #3c37008a;
 }
+
 .menu li .insta {
     font-family: FontAwesome;
     font-style: normal;
@@ -113,53 +148,70 @@ body {
 /* ------- Responsive for Mobile ------- */
 @media (max-width: 700px) {
     body {
+        background-attachment: scroll;
         background-position: center center;
         background-size: cover;
-        background-attachment: fixed;
+        min-height: 100vh;
     }
-    .menu {
-        left: 50%;
-        top: 35%;
-        transform: translate(-50%, 0);
-        min-width: 170px;
-    }
-    .menu li {
-        font-size: 1.18em;
-        margin-bottom: 18px;
-        padding-left: 5px;
-    }
+    
     .center-text {
         left: 50%;
         top: 12%;
-        width: 95vw;
+        width: 90%;
         transform: translate(-50%, 0);
         text-align: center;
+        z-index: 1;
     }
+    
     .center-text h1 {
-        font-size: 2.1em;
-        opacity: 0.28;
+        font-size: 1.8em;
+        opacity: 0.25;
     }
+    
     .center-text h2 {
-        font-size: 1.1em;
-        opacity: 0.19;
+        font-size: 1em;
+        opacity: 0.18;
     }
+    
+    .menu {
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+        min-width: 200px;
+        z-index: 10;
+    }
+    
+    .menu li {
+        font-size: 1.15em;
+        margin-bottom: 18px;
+        padding-left: 5px;
+    }
+    
     .menu li .icon,
     .menu li .insta {
-        font-size: 1.25em !important;
+        font-size: 1.2em !important;
         width: 1.6em;
         height: 1.6em;
     }
 }
 
-/* ------- Extra Small Screens ------- */
+/* ------- Very Small Screens ------- */
 @media (max-width: 480px) {
     .center-text h1 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
+    
     .center-text h2 {
-        font-size: 1em;
+        font-size: 0.9em;
     }
+    
+    .menu {
+        top: 50%;
+        min-width: 180px;
+    }
+    
     .menu li {
-        font-size: 1.15em;
+        font-size: 1.1em;
+        margin-bottom: 16px;
     }
 }
