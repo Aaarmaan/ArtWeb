@@ -10,134 +10,58 @@
     <nav>
         <ul>
             <li><a href="../">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#" class="active">WORKS</a></li>
-            <li><a href="#news">NEWS</a></li>
-            <li><a href="#statement">STATEMENT</a></li>
-            <li><a href="#links">LINKS</a></li>
+            <li><a href="../about/">ABOUT</a></li>
+            <li><a href="../gallery/" class="active">WORKS</a></li>
+            <li><a href="../news/">NEWS</a></li>
+            <li><a href="../statement/">STATEMENT</a></li>
+            <li><a href="../links/">LINKS</a></li>
             <li><a href="https://instagram.com/armanmahmoudi.art" target="_blank">CONTACT</a></li>
         </ul>
     </nav>
-    
-    <div class="gallery-container">
-        <h2 class="galleries-title">Galleries</h2>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(0)">
-                <img src="gallery1.jpg" alt="gallery 1">
-                <span>gallery 1</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(1)">
-                <img src="gallery2.jpg" alt="gallery 2">
-                <span>gallery 2</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(2)">
-                <img src="gallery3.jpg" alt="gallery 3">
-                <span>gallery 3</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(3)">
-                <img src="gallery4.jpg" alt="gallery 4">
-                <span>gallery 4</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(4)">
-                <img src="gallery5.jpg" alt="gallery 5">
-                <span>gallery 5</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(5)">
-                <img src="gallery6.jpg" alt="gallery 6">
-                <span>gallery 6</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(6)">
-                <img src="gallery7.jpg" alt="gallery 7">
-                <span>gallery 7</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(7)">
-                <img src="gallery8.jpg" alt="gallery 8">
-                <span>gallery 8</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(8)">
-                <img src="gallery9.jpg" alt="gallery 9">
-                <span>gallery 9</span>
-            </div>
-        </div>
-    </div>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" src="" alt="">
-        <div class="lightbox-nav">
-            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-            <button class="next" onclick="changeImage(1)">&#10095;</button>
+    <h2 class="galleries-title">Galleries</h2>
+
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="gallery1.jpg" alt="gallery 1">
+            <span>gallery 1</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery2.jpg" alt="gallery 2">
+            <span>gallery 2</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery3.jpg" alt="gallery 3">
+            <span>gallery 3</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery4.jpg" alt="gallery 4">
+            <span>gallery 4</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery5.jpg" alt="gallery 5">
+            <span>gallery 5</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery6.jpg" alt="gallery 6">
+            <span>gallery 6</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery7.jpg" alt="gallery 7">
+            <span>gallery 7</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery8.jpg" alt="gallery 8">
+            <span>gallery 8</span>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery9.jpg" alt="gallery 9">
+            <span>gallery 9</span>
         </div>
     </div>
 
     <footer>
-        <p>© 2021</p>
+        ورود | © 2008
     </footer>
-
-    <script>
-        const images = [
-            'gallery1.jpg',
-            'gallery2.jpg', 
-            'gallery3.jpg',
-            'gallery4.jpg',
-            'gallery5.jpg',
-            'gallery6.jpg',
-            'gallery7.jpg',
-            'gallery8.jpg',
-            'gallery9.jpg'
-        ];
-        
-        let currentImage = 0;
-        
-        function openLightbox(index) {
-            currentImage = index;
-            document.getElementById('lightbox').style.display = 'block';
-            document.getElementById('lightbox-img').src = images[index];
-        }
-        
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-        
-        function changeImage(direction) {
-            currentImage += direction;
-            if (currentImage >= images.length) currentImage = 0;
-            if (currentImage < 0) currentImage = images.length - 1;
-            document.getElementById('lightbox-img').src = images[currentImage];
-        }
-        
-        // Close lightbox when clicking outside image
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
-        });
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (document.getElementById('lightbox').style.display === 'block') {
-                if (e.key === 'ArrowLeft') changeImage(-1);
-                if (e.key === 'ArrowRight') changeImage(1);
-                if (e.key === 'Escape') closeLightbox();
-            }
-        });
-        
-        // Touch/swipe for mobile
-        let startX = 0;
-        document.getElementById('lightbox').addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-        });
-        
-        document.getElementById('lightbox').addEventListener('touchend', function(e) {
-            const endX = e.changedTouches[0].clientX;
-            const diff = startX - endX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) changeImage(1);
-                else changeImage(-1);
-            }
-        });
-    </script>
 </body>
 </html>
