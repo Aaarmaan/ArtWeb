@@ -6,12 +6,14 @@
 <title>Arman Mahmoudi | Artist</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
+<div class="scrim"></div>
 <div id="container">
   <div class="home-left">
     <div class="name-block">
-      <div class="artist" id="typed-name"></div>
-      <div class="role" id="typed-role"></div>
+      <h1 class="artist"><span>ARMAN</span><span>MAHMOUDI</span></h1>
+      <div class="rule"></div>
+      <div class="role">DIGITAL&nbsp;ARTIST</div>
     </div>
     <div class="menu">
       <ul>
@@ -24,28 +26,6 @@
       </ul>
     </div>
   </div>
-  <div class="home-art">
-    <img src="Background.png" alt="Arman Mahmoudi — artwork">
-  </div>
 </div>
-<script>
-// typing effect, like the reference site
-(function () {
-  var lines = [
-    { el: document.getElementById('typed-name'), text: 'ARMAN MAHMOUDI' },
-    { el: document.getElementById('typed-role'), text: 'DIGITAL ARTIST' }
-  ];
-  var li = 0, ci = 0;
-  function tick() {
-    if (li >= lines.length) return;
-    var cur = lines[li];
-    ci++;
-    cur.el.textContent = cur.text.slice(0, ci);
-    if (ci >= cur.text.length) { li++; ci = 0; setTimeout(tick, 350); }
-    else setTimeout(tick, 55);
-  }
-  tick();
-})();
-</script>
 </body>
 </html>
