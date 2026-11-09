@@ -7,26 +7,26 @@ html, body {
   font-family: "Times New Roman", Times, serif;
   min-height: 100%;
 }
-a { color: #888; text-decoration: none; transition: color .2s; }
+a { color: #555; text-decoration: none; transition: color .2s; }
 a:hover { color: #FFC; }
 
 /* ---------- home ---------- */
 #container {
-  width: 760px; max-width: 94vw;
+  width: 700px; max-width: 94vw;
   margin: 0 auto; position: relative;
-  padding-top: 40px;
+  padding-top: 70px;
   display: flex; gap: 30px; align-items: flex-start;
 }
-.home-left { width: 300px; flex: none; padding-top: 30px; }
-.name-block { text-align: left; min-height: 96px; }
+.home-left { width: 300px; flex: none; padding-top: 0; }
+.name-block { text-align: left; min-height: 60px; }
 .name-block .artist {
-  color: #94662D; font-size: 26px; letter-spacing: 1px; line-height: 1.25;
+  color: #94662D; font-size: 18px; letter-spacing: 0; line-height: 1.5;
 }
-.name-block .role { color: #BC823A; font-size: 19px; letter-spacing: 2px; }
-.menu { margin-top: 44px; }
+.name-block .role { color: #BC823A; font-size: 18px; letter-spacing: 0; }
+.menu { margin-top: 90px; }
 .menu ul { list-style: none; margin: 0; padding: 0; }
-.menu li { margin: 0 0 20px 0; font-size: 21px; letter-spacing: 3px; }
-.menu a { color: #999; }
+.menu li { margin: 0 0 24px 0; font-size: 26px; letter-spacing: 1px; }
+.menu a { color: #555; }
 .menu a:hover { color: #FFC; }
 .menu .badge {
   color: #FC6; font-size: 12px; letter-spacing: 1px;
@@ -46,7 +46,7 @@ nav .brand {
 }
 nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 30px; padding: 0; margin: 0; }
 nav li { font-size: 15px; letter-spacing: 2px; }
-nav a { color: #888; }
+nav a { color: #555; }
 nav li.active a, nav a:hover { color: #e2b16a; }
 .page { max-width: 900px; margin: 0 auto; padding: 44px 22px 60px 22px; }
 .page h1 {
@@ -78,6 +78,6 @@ footer { text-align: center; color: #555; font-size: 14px; padding: 26px 0 20px 
   #container { flex-direction: column; align-items: center; padding-top: 24px; }
   .home-left { width: 100%; padding-top: 0; text-align: center; }
   .name-block { text-align: center; }
-  .menu { margin-top: 26px; }
-  .menu li { display: inline-block; margin: 0 10px 12px 10px; font-size: 17px; }
+  .menu { margin-top: 30px; }
+  .menu li { margin: 0 0 16px 0; font-size: 22px; }
 }
