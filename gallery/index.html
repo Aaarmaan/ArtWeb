@@ -1,58 +1,37 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>گالری</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works — Arman Mahmoudi</title>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#gallery1">گالری ۱</a></li>
-      <li><a href="#gallery2">گالری ۲</a></li>
-      <li><a href="#gallery3">گالری ۳</a></li>
-    </ul>
-  </nav>
-
-  <div class="galleries-title">گالری ۱</div>
-  <div class="gallery-grid" id="gallery1">
-    <div class="gallery-item">
-      <img src="gallery1-1.jpg" alt="گالری 1 - عکس 1">
-      <span>عکس ۱</span>
-    </div>
-    <div class="gallery-item">
-      <img src="gallery1-2.jpg" alt="گالری 1 - عکس 2">
-      <span>عکس ۲</span>
-    </div>
-    <!-- اگر عکس بیشتر خواستی همین ساختار را تکرار کن -->
+<nav>
+  <a class="brand" href="../">ARMAN MAHMOUDI</a>
+  <ul>
+    <li><a href="../">HOME</a></li>
+    <li class="active"><a href="../gallery/">WORKS</a></li>
+    <li class=""><a href="../about/">ABOUT</a></li>
+    <li class=""><a href="../statement/">STATEMENT</a></li>
+    <li class=""><a href="../news/">NEWS</a></li>
+    <li class=""><a href="../links/">LINKS</a></li>
+    <li><a href="https://instagram.com/armanmahmoudi.art" target="_blank" rel="noopener">CONTACT</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <h1>WORKS</h1>
+  <div class="works-single">
+    <img src="gallery 1.png" alt="Artwork by Arman Mahmoudi" id="work1">
+    <div class="cap">ARMAN MAHMOUDI</div>
   </div>
-
-  <div class="galleries-title">گالری ۲</div>
-  <div class="gallery-grid" id="gallery2">
-    <div class="gallery-item">
-      <img src="gallery2-1.jpg" alt="گالری 2 - عکس 1">
-      <span>عکس ۱</span>
-    </div>
-    <div class="gallery-item">
-      <img src="gallery2-2.jpg" alt="گالری 2 - عکس 2">
-      <span>عکس ۲</span>
-    </div>
-  </div>
-
-  <div class="galleries-title">گالری ۳</div>
-  <div class="gallery-grid" id="gallery3">
-    <div class="gallery-item">
-      <img src="gallery3-1.jpg" alt="گالری 3 - عکس 1">
-      <span>عکس ۱</span>
-    </div>
-    <div class="gallery-item">
-      <img src="gallery3-2.jpg" alt="گالری 3 - عکس 2">
-      <span>عکس ۲</span>
-    </div>
-  </div>
-
-  <footer>
-    © 2024
-  </footer>
+</div>
+<div class="lightbox" id="lb"><img src="gallery 1.png" alt="Artwork by Arman Mahmoudi"></div>
+<footer>© Arman Mahmoudi</footer>
+<script>
+  var lb = document.getElementById('lb');
+  document.getElementById('work1').onclick = function () { lb.style.display = 'block'; };
+  lb.onclick = function () { lb.style.display = 'none'; };
+</script>
 </body>
 </html>

@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arman Mahmoudi</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arman Mahmoudi | Artist</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="center-text">
-        <h1>ARMAN MAHMOUDI</h1>
-        <h2>DIGITAL ARTIST</h2>
+<div id="container">
+  <div class="home-left">
+    <div class="name-block">
+      <div class="artist" id="typed-name"></div>
+      <div class="role" id="typed-role"></div>
     </div>
-
     <div class="menu">
-        <ul>
-            <li onclick="location.href='about/'">
-                <span class="icon">!</span>
-                ABOUT
-            </li>
-            <li onclick="location.href='gallery/'">
-                <span class="icon">@</span>
-                WORKS
-                <span class="badge">NEW</span>
-            </li>
-            <li onclick="location.href='news/'">
-                <span class="icon">#</span>
-                NEWS
-            </li>
-            <li onclick="location.href='statement/'">
-                <span class="icon">$</span>
-                STATEMENT
-            </li>
-            <li onclick="location.href='links/'">
-                <span class="icon">%</span>
-                LINKS
-            </li>
-            <li onclick="window.open('https://instagram.com/armanmahmoudi.art', '_blank')">
-                <span class="insta">&#xf16d;</span>
-                CONTACT
-            </li>
-        </ul>
+      <ul>
+        <li><a href="gallery/">WORKS</a><span class="badge">NEW</span></li>
+        <li><a href="about/">ABOUT</a></li>
+        <li><a href="statement/">STATEMENT</a></li>
+        <li><a href="news/">NEWS</a></li>
+        <li><a href="links/">LINKS</a></li>
+        <li><a href="https://instagram.com/armanmahmoudi.art" target="_blank" rel="noopener">CONTACT</a></li>
+      </ul>
     </div>
+  </div>
+  <div class="home-art">
+    <img src="Background.png" alt="Arman Mahmoudi — artwork">
+  </div>
+</div>
+<script>
+// typing effect, like the reference site
+(function () {
+  var lines = [
+    { el: document.getElementById('typed-name'), text: 'ARMAN MAHMOUDI' },
+    { el: document.getElementById('typed-role'), text: 'DIGITAL ARTIST' }
+  ];
+  var li = 0, ci = 0;
+  function tick() {
+    if (li >= lines.length) return;
+    var cur = lines[li];
+    ci++;
+    cur.el.textContent = cur.text.slice(0, ci);
+    if (ci >= cur.text.length) { li++; ci = 0; setTimeout(tick, 350); }
+    else setTimeout(tick, 55);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>
