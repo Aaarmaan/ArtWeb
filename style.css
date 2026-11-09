@@ -1,5 +1,6 @@
-/* Arman Mahmoudi — style modeled on classic artist sites:
-   black background, Times serif, gold accents */
+/* Arman Mahmoudi — black background, Times serif, gold accents.
+   Home: the artwork is the full-screen background, name set large and
+   static over it (no typing effect). */
 * { box-sizing: border-box; }
 html, body {
   margin: 0; padding: 0;
@@ -11,30 +12,49 @@ a { color: #555; text-decoration: none; transition: color .2s; }
 a:hover { color: #FFC; }
 
 /* ---------- home ---------- */
+body.home {
+  background: #000 url("Background.png") center center / cover no-repeat fixed;
+  min-height: 100dvh;
+}
+.scrim {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.58) 42%, rgba(0,0,0,.18) 74%, rgba(0,0,0,.38) 100%);
+}
 #container {
-  width: 700px; max-width: 94vw;
-  margin: 0 auto; position: relative;
-  padding-top: 70px;
-  display: flex; gap: 30px; align-items: flex-start;
+  position: relative; z-index: 1;
+  width: 100%; max-width: 1280px; margin: 0 auto;
+  min-height: 100dvh;
+  display: flex; align-items: center;
+  padding: 48px 6vw;
 }
-.home-left { width: 300px; flex: none; padding-top: 0; }
-.name-block { text-align: left; min-height: 60px; }
-.name-block .artist {
-  color: #94662D; font-size: 18px; letter-spacing: 0; line-height: 1.5;
+.home-left { text-align: left; }
+.name-block { text-align: left; }
+.name-block .artist { margin: 0; font-weight: normal; }
+.name-block .artist span {
+  display: block;
+  color: #D9A45B;
+  font-size: clamp(38px, 6.5vw, 68px);
+  letter-spacing: .28em; line-height: 1.14;
+  text-shadow: 0 2px 26px rgba(0,0,0,.85);
 }
-.name-block .role { color: #BC823A; font-size: 18px; letter-spacing: 0; }
-.menu { margin-top: 90px; }
+.name-block .rule {
+  width: 72px; height: 1px; background: #D9A45B; opacity: .85;
+  margin: 28px 0 18px 4px;
+}
+.name-block .role {
+  color: #E8C88A; font-size: 15px; letter-spacing: .55em;
+  text-shadow: 0 1px 14px rgba(0,0,0,.85);
+}
+.menu { margin-top: 58px; }
 .menu ul { list-style: none; margin: 0; padding: 0; }
-.menu li { margin: 0 0 24px 0; font-size: 26px; letter-spacing: 1px; }
-.menu a { color: #555; }
+.menu li { margin: 0 0 17px 0; font-size: 15px; letter-spacing: .35em; }
+.menu a { color: #D5D5D5; text-shadow: 0 1px 12px rgba(0,0,0,.9); }
 .menu a:hover { color: #FFC; }
 .menu .badge {
-  color: #FC6; font-size: 12px; letter-spacing: 1px;
-  border: 1px solid #94662D; padding: 1px 6px; margin-left: 10px;
+  color: #FC6; font-size: 10px; letter-spacing: 2px;
+  border: 1px solid #94662D; padding: 2px 6px; margin-left: 12px;
   vertical-align: middle;
 }
-.home-art { flex: 1; text-align: center; }
-.home-art img { max-width: 100%; max-height: 82vh; object-fit: contain; }
 
 /* ---------- sub pages ---------- */
 nav {
@@ -76,26 +96,39 @@ footer { text-align: center; color: #555; font-size: 14px; padding: 26px 0 20px 
 
 @media (max-width: 700px) {
   html, body { overflow-x: hidden; }
-  /* home: name on top, artwork right under it, menu below the artwork —
-     display:contents lets name/menu reorder around the artwork */
-  #container {
-    flex-direction: column; align-items: center;
-    padding: 52px 16px 34px 16px; gap: 0;
-    width: 100%; max-width: 100vw;
-  }
-  .home-left { display: contents; }
-  .name-block { order: 1; text-align: center; min-height: 0; margin-bottom: 20px; }
-  .name-block .artist, .name-block .role { font-size: 17px; line-height: 1.6; }
-  .home-art { order: 2; width: 100%; text-align: center; }
-  .home-art img { max-width: 88%; max-height: 40vh; }
-  .menu { order: 3; margin-top: 28px; text-align: center; }
-  .menu li { margin: 0 0 15px 0; font-size: 21px; }
 
-  /* sub pages: keep the top menu fully inside the screen */
-  nav { padding: 30px 10px 14px 10px; width: 100%; }
+  /* home on mobile: background fills the screen, name and menu over it */
+  body.home { background-attachment: scroll; }
+  .scrim {
+    background: linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.38) 45%, rgba(0,0,0,.78) 100%);
+  }
+  #container {
+    min-height: 100dvh; align-items: center; justify-content: center;
+    padding: 44px 20px 36px 20px; text-align: center;
+  }
+  .home-left { width: 100%; text-align: center; }
+  .name-block { text-align: center; }
+  .name-block .artist span {
+    font-size: clamp(30px, 9.5vw, 42px);
+    letter-spacing: .22em; padding-left: .22em;
+  }
+  .name-block .rule { margin: 24px auto 16px auto; }
+  .name-block .role { font-size: 12px; letter-spacing: .45em; padding-left: .45em; }
+  .menu { margin-top: 46px; text-align: center; }
+  .menu li { margin: 0 0 15px 0; font-size: 14px; letter-spacing: .3em; }
+
+  /* sub pages on mobile ONLY: menu moves to the bottom of the page,
+     desktop keeps the menu at the top */
+  body:not(.home) { display: flex; flex-direction: column; min-height: 100dvh; }
+  .page { order: 1; width: 100%; padding: 36px 20px 40px 20px; }
+  .page h1 { font-size: 26px; letter-spacing: 2px; }
+  nav {
+    order: 2; margin-top: auto; width: 100%;
+    border-bottom: none; border-top: 1px solid #222;
+    padding: 18px 10px 14px 10px;
+  }
+  footer { order: 3; }
   nav .brand { font-size: 19px; letter-spacing: 1px; margin-bottom: 14px; }
   nav ul { gap: 10px 16px; padding: 0 2px; }
   nav li { font-size: 13px; letter-spacing: 1px; white-space: nowrap; }
-  .page { padding: 32px 20px 48px 20px; }
-  .page h1 { font-size: 26px; letter-spacing: 2px; }
 }
