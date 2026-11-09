@@ -77,6 +77,23 @@ nav li.active a, nav a:hover { color: #e2b16a; }
 .page .muted { color: #777; }
 
 /* ---------- works ---------- */
+.works-section { margin-bottom: 56px; }
+.works-section h2 {
+  color: #BC823A; font-weight: normal; font-size: 22px;
+  letter-spacing: 3px; margin: 0 0 6px 0;
+}
+.works-section .yr { color: #777; letter-spacing: 2px; font-size: 15px; margin-bottom: 20px; }
+.works-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px;
+}
+.works-grid figure { margin: 0; }
+.works-grid img {
+  width: 100%; height: 300px; object-fit: contain; display: block;
+  border: 1px solid #333; cursor: pointer; background: #0a0a0a;
+}
+.works-grid figcaption {
+  color: #999; letter-spacing: 2px; font-size: 13px; margin-top: 8px; text-align: center;
+}
 .works-single { text-align: center; }
 .works-single img {
   max-width: 100%; max-height: 78vh; object-fit: contain;
@@ -131,4 +148,7 @@ footer { text-align: center; color: #555; font-size: 14px; padding: 26px 0 20px 
   nav .brand { font-size: 19px; letter-spacing: 1px; margin-bottom: 14px; }
   nav ul { gap: 10px 16px; padding: 0 2px; }
   nav li { font-size: 13px; letter-spacing: 1px; white-space: nowrap; }
+
+  .works-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .works-grid img { height: 210px; }
 }
