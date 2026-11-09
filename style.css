@@ -75,9 +75,27 @@ nav li.active a, nav a:hover { color: #e2b16a; }
 footer { text-align: center; color: #555; font-size: 14px; padding: 26px 0 20px 0; letter-spacing: 1px; }
 
 @media (max-width: 700px) {
-  #container { flex-direction: column; align-items: center; padding-top: 24px; }
-  .home-left { width: 100%; padding-top: 0; text-align: center; }
-  .name-block { text-align: center; }
-  .menu { margin-top: 30px; }
-  .menu li { margin: 0 0 16px 0; font-size: 22px; }
+  html, body { overflow-x: hidden; }
+  /* home: name on top, artwork right under it, menu below the artwork —
+     display:contents lets name/menu reorder around the artwork */
+  #container {
+    flex-direction: column; align-items: center;
+    padding: 52px 16px 34px 16px; gap: 0;
+    width: 100%; max-width: 100vw;
+  }
+  .home-left { display: contents; }
+  .name-block { order: 1; text-align: center; min-height: 0; margin-bottom: 20px; }
+  .name-block .artist, .name-block .role { font-size: 17px; line-height: 1.6; }
+  .home-art { order: 2; width: 100%; text-align: center; }
+  .home-art img { max-width: 88%; max-height: 40vh; }
+  .menu { order: 3; margin-top: 28px; text-align: center; }
+  .menu li { margin: 0 0 15px 0; font-size: 21px; }
+
+  /* sub pages: keep the top menu fully inside the screen */
+  nav { padding: 30px 10px 14px 10px; width: 100%; }
+  nav .brand { font-size: 19px; letter-spacing: 1px; margin-bottom: 14px; }
+  nav ul { gap: 10px 16px; padding: 0 2px; }
+  nav li { font-size: 13px; letter-spacing: 1px; white-space: nowrap; }
+  .page { padding: 32px 20px 48px 20px; }
+  .page h1 { font-size: 26px; letter-spacing: 2px; }
 }
