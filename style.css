@@ -13,12 +13,14 @@ a:hover { color: #FFC; }
 
 /* ---------- home ---------- */
 body.home {
-  background: #000 url("Background.png") center center / cover no-repeat fixed;
+  background: #000 url("Background.jpg") center center / cover no-repeat fixed;
   min-height: 100dvh;
 }
 .scrim {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.58) 42%, rgba(0,0,0,.18) 74%, rgba(0,0,0,.38) 100%);
+  background:
+    linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.5) 40%, rgba(0,0,0,.15) 70%, rgba(0,0,0,0) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,0) 80%);
 }
 #container {
   position: relative; z-index: 1;
@@ -117,7 +119,7 @@ footer { text-align: center; color: #555; font-size: 14px; padding: 26px 0 20px 
   /* home on mobile: background fills the screen, name and menu over it */
   body.home { background-attachment: scroll; }
   .scrim {
-    background: linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.38) 45%, rgba(0,0,0,.78) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.15) 100%);
   }
   #container {
     min-height: 100dvh; align-items: center; justify-content: center;
