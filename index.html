@@ -607,7 +607,7 @@ function buildFallback(){
     }
     var fig = document.createElement('figure');
     var img = document.createElement('img');
-    img.src = 'assets/' + w.file;
+    img.src = 'https://armanmahmoudi.ir/gallery/' + w.file;
     img.style.aspectRatio = (w.rw / w.rh); /* each work's real proportions */
     if (w.series === 'Drawing') img.className = 'drawing';
     img.alt = w.series + ' ' + w.year + ' — work by Arman Mahmoudi';
@@ -796,7 +796,7 @@ WORKS.forEach(function(w, i){
   }
   /* the artwork — drawings hang with no frame and no passe-partout at
      all: the sheet itself sits almost flat on the wall */
-  var tex = texLoader.load('assets/' + w.file);
+  var tex = texLoader.load('https://armanmahmoudi.ir/gallery/' + w.file);
   if ('colorSpace' in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
   var art = new THREE.Mesh(new THREE.PlaneGeometry(pw, h),
@@ -1079,15 +1079,15 @@ function fillPanel(i){
   var pre = new Image();
   pre.onload = function(){
     if (token !== pImgToken) return;
-    pImgEl.src = 'assets/' + w.file;
+    pImgEl.src = 'https://armanmahmoudi.ir/gallery/' + w.file;
     pImgEl.classList.add('loaded');
   };
   pre.onerror = function(){
     if (token !== pImgToken) return;
-    pImgEl.src = 'assets/' + w.file;
+    pImgEl.src = 'https://armanmahmoudi.ir/gallery/' + w.file;
     pImgEl.classList.add('loaded');
   };
-  pre.src = 'assets/' + w.file;
+  pre.src = 'https://armanmahmoudi.ir/gallery/' + w.file;
   document.getElementById('pCode').textContent = w.code;
   document.getElementById('pTitle').textContent = w.title;
   document.getElementById('pSeriesLine').textContent = w.series + ' series — work ' + w.n + ' of ' + w.of;
