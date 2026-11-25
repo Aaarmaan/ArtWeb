@@ -542,7 +542,7 @@
 /* loader safety net — deliberately BEFORE the three.js script tag:
    the spinner must disappear on its own even if three.min.js is slow,
    blocked, or fails, so this timer never depends on it. The gallery
-   script also dismisses the spinner the moment its textures arrive;
+   script also dismisses the spinner on its first rendered frame;
    whichever happens first wins. */
 setTimeout(function(){
   var l = document.getElementById('loader');
@@ -757,8 +757,11 @@ function labelTexture(w){
    (section centre = 10 * STEP). Pitch = drawing width + a slim gap. */
 var DRAW_PITCH = 0.071;
 
-var loaderMgr = new THREE.LoadingManager();
-var texLoader = new THREE.TextureLoader(loaderMgr);
+/* paintings still fading in: each picture loads on its own and fades
+   into its frame the moment its image arrives — there is deliberately
+   NO shared loading manager, so one slow or failed photo can never
+   hold up the room or the other works */
+var fading = [];
 
 /* one true scale for the whole room — world units per centimetre.
    Every work hangs at its real size, so the proportions between the
@@ -795,15 +798,31 @@ WORKS.forEach(function(w, i){
     mat.position.set(0, cy, 0.115); grp.add(mat);
   }
   /* the artwork — drawings hang with no frame and no passe-partout at
-     all: the sheet itself sits almost flat on the wall */
-  var tex = texLoader.load('https://armanmahmoudi.ir/gallery/' + w.file);
-  if ('colorSpace' in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-  var art = new THREE.Mesh(new THREE.PlaneGeometry(pw, h),
-    new THREE.MeshStandardMaterial({ map:tex, roughness:0.85, metalness:0 }));
+     all: the sheet itself sits almost flat on the wall. The plane goes
+     up immediately as a blank canvas in its frame; its photo is loaded
+     independently and fades in as soon as it arrives. */
+  var artMat = new THREE.MeshStandardMaterial({ color:0xe9e1cf, roughness:0.9, metalness:0 });
+  var art = new THREE.Mesh(new THREE.PlaneGeometry(pw, h), artMat);
   art.position.set(0, cy, isDrawing ? 0.03 : 0.125);
   art.userData.index = i;
   grp.add(art); artMeshes.push(art);
+  (function(mat, file){
+    new THREE.TextureLoader().load(
+      'https://armanmahmoudi.ir/gallery/' + file,
+      function(tex){
+        if ('colorSpace' in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
+        tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+        mat.map = tex;
+        mat.color.set(0xffffff);
+        mat.transparent = true;
+        mat.opacity = 0;
+        mat.needsUpdate = true;
+        fading.push(mat);
+      },
+      undefined,
+      function(){ /* this photo failed: the blank canvas stays — nothing else waits on it */ }
+    );
+  })(artMat, w.file);
 
   /* the drawings hang plain: no picture light, no wall label — tapping
      one only brings it closer */
@@ -874,8 +893,10 @@ SECTIONS.forEach(function(sec){
   scene.add(g);
 });
 
-loaderMgr.onLoad = function(){ document.getElementById('loader').classList.add('done'); };
-setTimeout(function(){ document.getElementById('loader').classList.add('done'); }, 5000);
+/* the spinner is NOT tied to the photos at all: the render loop
+   dismisses it as soon as the room's first frame is on screen, and the
+   safety-net timer before the three.js tag covers a total failure —
+   the paintings then arrive one by one, each on its own schedule */
 
 /* ================= state & camera choreography ================= */
 var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1283,6 +1304,7 @@ container.addEventListener('pointercancel', function(){
 
 /* ================= render loop ================= */
 var clock = new THREE.Clock();
+var firstFrame = true;
 var initPose = walkPose(angle);
 camera.position.copy(initPose.pos);
 lookTarget.copy(initPose.look);
@@ -1312,7 +1334,24 @@ function frame(){
       camera.lookAt(lookTarget);
       refreshWalkUI();
     }
+    /* fade in each painting whose photo has just arrived — every work
+       on its own, none waiting for the others */
+    for (var fi = fading.length - 1; fi >= 0; fi--){
+      var fm = fading[fi];
+      fm.opacity = Math.min(1, fm.opacity + dt * 1.8);
+      if (fm.opacity >= 1){
+        fm.transparent = false;
+        fm.needsUpdate = true;
+        fading.splice(fi, 1);
+      }
+    }
     renderer.render(scene, camera);
+    if (firstFrame){
+      /* the room and the frames are on screen — the spinner's job is
+         done, however many photos are still on their way */
+      firstFrame = false;
+      document.getElementById('loader').classList.add('done');
+    }
   } catch(err) {
     /* keep the loop alive; the error box already reported it */
   }
