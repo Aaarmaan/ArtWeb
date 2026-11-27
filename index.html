@@ -554,11 +554,18 @@ function renderAbout() {
   page.appendChild(pageHead("About"));
   var wrap = document.createElement("div");
   wrap.className = "prose";
-  wrap.innerHTML =
-    '<p class="name-line">Arman Mahmoudi</p>' +
-    '<div class="link-row">' +
-    '<a href="https://instagram.com/armanmahmoudi.art" target="_blank" rel="noopener">Instagram — @armanmahmoudi.art</a>' +
-    '</div>';
+  var name = document.createElement("p");
+  name.className = "name-line";
+  name.textContent = "Arman Mahmoudi";
+  wrap.appendChild(name);
+  var bio = document.createElement("p");
+  bio.textContent = "I am a painter based in Tehran, Iran. I hold an MA in Painting from Soore University of Art in Tehran and a BA in Graphic Design from Islamic Azad University. My work centers on the Levitation series, mixed-media paintings of figures in a state of inner suspension. My paintings explore waiting, accusation without a charge, and the silence of a situation that never resolves.";
+  wrap.appendChild(bio);
+  var links = document.createElement("div");
+  links.className = "link-row";
+  links.innerHTML =
+    '<a href="https://instagram.com/armanmahmoudi.art" target="_blank" rel="noopener">Instagram — @armanmahmoudi.art</a>';
+  wrap.appendChild(links);
   page.appendChild(wrap);
 }
 
@@ -580,8 +587,12 @@ function renderCv() {
   wrap.className = "prose";
   wrap.innerHTML =
     '<h3>Group Exhibitions &amp; Events</h3>' +
+    '<p>2022 — \u201COne + One + One + One Million\u201D, group exhibition, Salis Gallery</p>' +
+    '<p>2022 — Group exhibition for young artists, Artibition</p>' +
+    '<p>2022 — Online group exhibition, Satin Gallery</p>' +
     '<p>2026 — \u201COne Week with the Iranian Society of Painters\u201D (Second Edition), Iranian Artists Forum, Tehran, 9\u201319 October 2026</p>' +
     '<p class="soft">Certificate of appreciation — Iranian Society of Painters</p>' +
+    '<p>Affiliate Member, Iranian Society of Painters, since 2025</p>' +
     '<div class="rule"></div>' +
     '<h3>Selected Series</h3>' +
     '<p class="tight">Levitation — 2022</p>' +
